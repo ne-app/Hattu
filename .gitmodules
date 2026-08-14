@@ -1,0 +1,3 @@
+[submodule "libs/adb"]
+	path = libs/adb
+	url = git@github.com:ne-app/adb.git
