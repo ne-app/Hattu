@@ -4,8 +4,8 @@
 
 #include <libdisk/disk.h>
 
-int main(void)
+int libdisk_check_boot_sector(struct libdisk_disk_interface* in)
 {
-
+    if (in == NULL) return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

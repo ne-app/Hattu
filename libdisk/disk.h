@@ -20,9 +20,9 @@ enum {
 };
 
 enum {
-    libdisk_disk_birate_invalid,
-    libdisk_disk_birate_slow = 600,
-    libdisk_disk_birate_std,
-    libdisk_disk_birate_fast,
-    libdisk_disk_birate_very_fast,
+    libdisk_disk_bitrate_invalid,
+    libdisk_disk_bitrate_slow = 600,
+    libdisk_disk_bitrate_std,
+    libdisk_disk_bitrate_fast,
+    libdisk_disk_bitrate_very_fast,
 };
