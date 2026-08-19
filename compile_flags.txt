@@ -1,0 +1,5 @@
+-std=c17
+-I./
+-Wall
+-Werror
+-Wextra
