@@ -2,7 +2,7 @@
 // Copyright 2026, Ne.app. All rights reserved
 // Official repository: https://github.com/ne-app-ci/distro
 
-#include <stdlib.h>
+#include <libdisk/disk.h>
 
 int main(void)
 {
