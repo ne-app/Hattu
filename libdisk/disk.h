@@ -4,8 +4,19 @@
 
 #pragma once
 
-#include <stdlib.h>
 #include <stdint.h>
+
+#ifndef LIBDISK_EXIT_SUCCESS
+#define LIBDISK_EXIT_SUCCESS (1)
+#endif
+
+#ifndef LIBDISK_EXIT_FAILURE
+#define LIBDISK_EXIT_FAILURE (0)
+#endif
+
+#ifndef LIBDISK_NULL
+#define LIBDISK_NULL (nullptr)
+#endif
 
 #ifndef final
 #define final

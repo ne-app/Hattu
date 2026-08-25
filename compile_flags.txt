@@ -1,4 +1,4 @@
--std=c17
+-std=c23
 -I./
 -Wall
 -Werror
