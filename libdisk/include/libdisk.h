@@ -5,6 +5,15 @@
 #pragma once
 
 #include <stdint.h>
+#include <stdlib.h>
+
+#ifndef LIBDISK_EXTERN_C
+#ifdef __cplusplus
+#define LIBDISK_EXTERN_C extern "C"
+#else
+#define LIBDISK_EXTERN_C extern
+#endif
+#endif
 
 #ifndef LIBDISK_EXIT_SUCCESS
 #define LIBDISK_EXIT_SUCCESS (1)
@@ -20,6 +29,10 @@
 
 #ifndef final
 #define final
+#endif
+
+#ifndef LIBDISK_DISK_MAGIC
+#define LIBDISK_DISK_MAGIC (0x44775566)
 #endif
 
 struct libdisk_disk_interface final {
@@ -44,3 +57,6 @@ enum {
     libdisk_disk_bitrate_fast,
     libdisk_disk_bitrate_very_fast,
 };
+
+
+LIBDISK_EXTERN_C int32_t libdisk_check_boot_sector(const struct libdisk_disk_interface* in);
