@@ -9,7 +9,7 @@ libdisk_check_boot_sector(const struct libdisk_disk_interface *in) {
   if (in == LIBDISK_NULL)
     return LIBDISK_EXIT_FAILURE;
 
-  if (in->f_flags == 0)
+  if (in->f_flags == 0L)
     return LIBDISK_EXIT_FAILURE;
 
   return (in->f_cur_sz > 0 && in->f_type != 0 &&

@@ -36,9 +36,9 @@
 #endif
 
 struct libdisk_disk_interface final {
-  int32_t f_magic;
-  int32_t f_type;
-  int32_t f_flags;
+  int64_t f_magic;
+  int16_t f_type;
+  int64_t f_flags;
   int64_t f_fd;
   int64_t f_cur_sz, f_cur_buf_sz;
 };
