@@ -5,7 +5,10 @@
 #pragma once
 
 #include <stdint.h>
-#include <stdlib.h>
+
+#ifndef LIBDISK_DISKNAME
+#define LIBDISK_DISKNAME(N) N ".vdf"
+#endif
 
 #ifndef LIBDISK_EXTERN_C
 #ifdef __cplusplus
@@ -37,6 +40,7 @@
 
 struct libdisk_disk_interface final {
   int64_t f_magic;
+  int16_t f_version;
   int16_t f_type;
   int64_t f_flags;
   int64_t f_fd;
@@ -58,5 +62,8 @@ enum {
     libdisk_disk_bitrate_very_fast,
 };
 
-
+/// @brief libdisk check virtual boot sector.
 LIBDISK_EXTERN_C int32_t libdisk_check_boot_sector(const struct libdisk_disk_interface* in);
+
+/// @brief libdisk create virtual boot sector.
+LIBDISK_EXTERN_C int32_t libdisk_create_boot_sector(struct libdisk_disk_interface* in, const char* ldi_file);
