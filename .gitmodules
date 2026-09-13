@@ -1,3 +1,6 @@
 [submodule "libs/adb"]
 	path = libs/adb
 	url = git@github.com:ne-app/adb.git
+[submodule "etc/css"]
+	path = etc/css
+	url = https://github.com/jothepro/doxygen-awesome-css.git
