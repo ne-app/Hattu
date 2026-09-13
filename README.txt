@@ -1,4 +1,4 @@
-Ne.app Distribution for Linux Instances
-=======================================
+Ne.app Distribution for BSD Instances
+=====================================
 
 Contains additional drivers et al for such instances.
