@@ -1,5 +1,5 @@
 -std=c23
--Ilibs/libdisk/include/
+-Ilibs/disk/include/
 -Wall
 -Werror
 -Wextra

@@ -12,7 +12,7 @@ sudo apt upgrade -y
 clear
 
 echo "+==========================================================+"
-echo "Welcome ${USER}! to Ne.app OS."
-echo "The Time is $NOW$."
+echo "Welcome ${USER}, to Ne.app Hattu."
+echo "The time is $NOW$."
 uname -a
 echo "+==========================================================+"
