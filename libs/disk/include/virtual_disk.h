@@ -19,6 +19,10 @@
 #endif
 #endif
 
+#ifndef LIBDISK_EXPORT
+#define LIBDISK_EXPORT __attribute__((visibility("default")))
+#endif
+
 #ifndef LIBDISK_EXIT_SUCCESS
 #define LIBDISK_EXIT_SUCCESS (1)
 #endif
@@ -28,7 +32,7 @@
 #endif
 
 #ifndef LIBDISK_NULL
-#define LIBDISK_NULL (nullptr)
+#define LIBDISK_NULL (NULL)
 #endif
 
 #ifndef final
@@ -64,7 +68,7 @@ enum {
 };
 
 /// @brief libdisk check virtual boot sector.
-LIBDISK_EXTERN_C int32_t libdisk_check_boot_sector(const struct libdisk_disk_interface* in);
+LIBDISK_EXTERN_C LIBDISK_EXPORT int32_t libdisk_check_boot_sector(const struct libdisk_disk_interface* in);
 
 /// @brief libdisk create virtual boot sector.
-LIBDISK_EXTERN_C int32_t libdisk_create_boot_sector(struct libdisk_disk_interface* in, const char* ldi_file);
+LIBDISK_EXTERN_C LIBDISK_EXPORT int32_t libdisk_create_boot_sector(struct libdisk_disk_interface* in, const char* ldi_file);
