@@ -18,6 +18,8 @@
 #define LIBDISK_SECTOR_SZ (512)
 #endif
 
+typedef FILE* libdisk_file_t;
+
 LIBDISK_EXTERN_C int32_t libdisk_check_boot_sector(const struct libdisk_disk_interface* in) {
   if (in == LIBDISK_NULL) return LIBDISK_EXIT_FAILURE;
   if (in->f_type == 0L) return LIBDISK_EXIT_FAILURE;
@@ -27,8 +29,6 @@ LIBDISK_EXTERN_C int32_t libdisk_check_boot_sector(const struct libdisk_disk_int
              ? LIBDISK_EXIT_SUCCESS
              : LIBDISK_EXIT_FAILURE;
 }
-
-typedef FILE* libdisk_file_t;
 
 LIBDISK_EXTERN_C int32_t libdisk_create_boot_sector(struct libdisk_disk_interface* in,
                                                     const char*                    ldi_file) {
