@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include <unistd.h>
 #include <stdint.h>
+#include <unistd.h>
 
 #ifndef LIBDISK_DISKNAME
 #define LIBDISK_DISKNAME(N) N ".vdf"
@@ -48,7 +48,7 @@ struct libdisk_disk_interface final {
   int16_t f_version;
   int16_t f_type;
   int64_t f_flags;
-  int64_t f_fd; // last fd
+  int64_t f_fd;  // last fd
   int64_t f_crc32;
   int64_t f_disk_size;
   int64_t f_sector_size;
@@ -56,22 +56,24 @@ struct libdisk_disk_interface final {
 };
 
 enum {
-    libdisk_disk_interface_invalid,
-    libdisk_disk_interface_network = 500,
-    libdisk_disk_interface_virt, // VHDX
-    libdisk_disk_interface_phys, // Our own .vdf format
+  libdisk_disk_interface_invalid,
+  libdisk_disk_interface_network = 500,
+  libdisk_disk_interface_virt,  // VHDX
+  libdisk_disk_interface_phys,  // Our own .vdf format
 };
 
 enum {
-    libdisk_disk_bitrate_invalid,
-    libdisk_disk_bitrate_slow = 600,
-    libdisk_disk_bitrate_std,
-    libdisk_disk_bitrate_fast,
-    libdisk_disk_bitrate_very_fast,
+  libdisk_disk_bitrate_invalid,
+  libdisk_disk_bitrate_slow = 600,
+  libdisk_disk_bitrate_std,
+  libdisk_disk_bitrate_fast,
+  libdisk_disk_bitrate_very_fast,
 };
 
 /// @brief libdisk check virtual boot sector.
-LIBDISK_EXTERN_C LIBDISK_EXPORT int32_t libdisk_check_boot_sector(const struct libdisk_disk_interface* in);
+LIBDISK_EXTERN_C LIBDISK_EXPORT int32_t
+libdisk_check_boot_sector(const struct libdisk_disk_interface* in);
 
 /// @brief libdisk create virtual boot sector.
-LIBDISK_EXTERN_C LIBDISK_EXPORT int32_t libdisk_create_boot_sector(struct libdisk_disk_interface* in, const char* ldi_file);
+LIBDISK_EXTERN_C LIBDISK_EXPORT int32_t
+libdisk_create_boot_sector(struct libdisk_disk_interface* in, const char* ldi_file);
