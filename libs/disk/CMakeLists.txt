@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Propietary
 # Copyright 2026, Ne.app. All rights reserved
-# Official repository: https://github.com/ne-app-ci/hattu
+# Official repository: https://github.com/ne-app/hattu
 
 cmake_minimum_required(VERSION 3.25.1)
 
