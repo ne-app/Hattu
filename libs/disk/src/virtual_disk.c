@@ -4,6 +4,7 @@
 
 #include <virtual_disk.h>
 #include <stdio.h>
+#include <openssl/md5.h>
 
 /// The macros defined here are used internally by the library.
 #ifndef LIBDISK_VER
@@ -52,7 +53,6 @@ LIBDISK_EXTERN_C int32_t libdisk_create_boot_sector_vdf(struct libdisk_disk_inte
   if (ldi_file && *ldi_file != 0) {
     libdisk_file_t f_ldi = fopen(ldi_file, "wb");
 
-    in->f_fd = (uint64_t)f_ldi;
     in->f_sector_size = LIBDISK_SECTOR_SZ;
 
     if (f_ldi) {

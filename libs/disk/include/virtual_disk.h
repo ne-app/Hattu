@@ -48,7 +48,6 @@ struct libdisk_disk_interface final {
   int16_t f_version;
   int16_t f_type;
   int64_t f_flags;
-  int64_t f_fd;  // last fd
   int64_t f_crc32;
   int64_t f_disk_size;
   int64_t f_sector_size;
