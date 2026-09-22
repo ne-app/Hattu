@@ -12,7 +12,7 @@ if (DEFINED VD_INCLUDE_C_EXTENSIONS)
 set(CMAKE_C_EXTENSIONS 1)
 endif()
 
-set(NEAPP_LIBDISK_SOURCES src/boot_sector.c)
+set(NEAPP_LIBDISK_SOURCES src/virtual_disk.c)
 
 add_library(VirtualDisk SHARED ${NEAPP_LIBDISK_SOURCES})
 target_include_directories(VirtualDisk PUBLIC ./include)
