@@ -7,11 +7,11 @@
 
 /// The macros defined here are used internally by the library.
 #ifndef LIBDISK_VER
-#define LIBDISK_VER (0x001)
+#define LIBDISK_VER (0x101)
 #endif
 
 #ifndef LIBDISK_START_OFF
-#define LIBDISK_START_OFF (512)
+#define LIBDISK_START_OFF (1024)
 #endif
 
 #ifndef LIBDISK_SECTOR_SZ
@@ -24,6 +24,9 @@ LIBDISK_EXTERN_C int32_t libdisk_check_boot_sector(const struct libdisk_disk_int
   if (in == LIBDISK_NULL) return LIBDISK_EXIT_FAILURE;
   if (in->f_type == 0L) return LIBDISK_EXIT_FAILURE;
   if (in->f_flags == 0L) return LIBDISK_EXIT_FAILURE;
+  if (in->f_crc32 == 0L) return LIBDISK_EXIT_FAILURE;
+  if (in->f_disk_size == 0L) return LIBDISK_EXIT_FAILURE;
+  if (in->f_sector_size == 0L) return LIBDISK_EXIT_FAILURE;
 
   return (in->f_cur_sz > 0 && in->f_type != 0 && in->f_magic == LIBDISK_DISK_MAGIC)
              ? LIBDISK_EXIT_SUCCESS
@@ -33,6 +36,8 @@ LIBDISK_EXTERN_C int32_t libdisk_check_boot_sector(const struct libdisk_disk_int
 LIBDISK_EXTERN_C int32_t libdisk_create_boot_sector(struct libdisk_disk_interface* in,
                                                     const char*                    ldi_file) {
   if (in == LIBDISK_NULL) return LIBDISK_EXIT_FAILURE;
+  if (in->f_crc32 == 0) return LIBDISK_EXIT_FAILURE;
+  if (in->f_disk_size == 0) return LIBDISK_EXIT_FAILURE;
 
   in->f_magic = LIBDISK_DISK_MAGIC;
 
@@ -46,6 +51,9 @@ LIBDISK_EXTERN_C int32_t libdisk_create_boot_sector(struct libdisk_disk_interfac
 
   if (ldi_file && *ldi_file != 0) {
     libdisk_file_t f_ldi = fopen(ldi_file, "wb");
+
+    in->f_fd = (uint64_t)f_ldi;
+    in->f_sector_size = LIBDISK_SECTOR_SZ;
 
     if (f_ldi) {
       fwrite(in, sizeof(struct libdisk_disk_interface), SEEK_SET + LIBDISK_START_OFF, f_ldi);

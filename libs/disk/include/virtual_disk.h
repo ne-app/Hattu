@@ -48,15 +48,18 @@ struct libdisk_disk_interface final {
   int16_t f_version;
   int16_t f_type;
   int64_t f_flags;
-  int64_t f_fd;
+  int64_t f_fd; // last fd
+  int64_t f_crc32;
+  int64_t f_disk_size;
+  int64_t f_sector_size;
   int64_t f_cur_sz, f_cur_buf_sz;
 };
 
 enum {
     libdisk_disk_interface_invalid,
     libdisk_disk_interface_network = 500,
-    libdisk_disk_interface_virt,
-    libdisk_disk_interface_phys,
+    libdisk_disk_interface_virt, // VHDX
+    libdisk_disk_interface_phys, // Our own .vdf format
 };
 
 enum {
