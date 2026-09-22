@@ -33,7 +33,7 @@ LIBDISK_EXTERN_C int32_t libdisk_check_boot_sector(const struct libdisk_disk_int
              : LIBDISK_EXIT_FAILURE;
 }
 
-LIBDISK_EXTERN_C int32_t libdisk_create_boot_sector(struct libdisk_disk_interface* in,
+LIBDISK_EXTERN_C int32_t libdisk_create_boot_sector_vdf(struct libdisk_disk_interface* in,
                                                     const char*                    ldi_file) {
   if (in == LIBDISK_NULL) return LIBDISK_EXIT_FAILURE;
   if (in->f_crc32 == 0) return LIBDISK_EXIT_FAILURE;

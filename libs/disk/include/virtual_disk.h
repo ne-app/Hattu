@@ -58,7 +58,7 @@ struct libdisk_disk_interface final {
 enum {
   libdisk_disk_interface_invalid,
   libdisk_disk_interface_network = 500,
-  libdisk_disk_interface_virt,  // VHDX
+  libdisk_disk_interface_virt,  // VHDX, VDF
   libdisk_disk_interface_phys,  // Our own .vdf format
 };
 
@@ -76,4 +76,7 @@ libdisk_check_boot_sector(const struct libdisk_disk_interface* in);
 
 /// @brief libdisk create virtual boot sector.
 LIBDISK_EXTERN_C LIBDISK_EXPORT int32_t
-libdisk_create_boot_sector(struct libdisk_disk_interface* in, const char* ldi_file);
+libdisk_create_boot_sector_vdf(struct libdisk_disk_interface* in, const char* ldi_file);
+
+LIBDISK_EXTERN_C LIBDISK_EXPORT int32_t
+libdisk_create_boot_sector_vhdx(struct libdisk_disk_interface* in, const char* ldi_file);
