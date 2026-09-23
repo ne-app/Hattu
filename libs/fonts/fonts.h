@@ -31,3 +31,17 @@ typedef void (*_FLUnLoadFont)(struct _FONTLAYER*);
 typedef void (*_FLRenderFont)(struct _FONTLAYER*, struct _FONTRENDERINFO*);
 
 typedef void* FONTHANDLE;
+
+#ifndef IMPORT_C
+#ifdef __cplusplus
+#define IMPORT_C extern "C"
+#else
+#define IMPORT_C
+#endif
+#endif
+
+IMPORT_C __int32_t FLLoadLibrary(void);
+
+IMPORT_C __int32_t FLFreeLibrary(void);
+
+IMPORT_C void* FLLibraryInfo(size_t, size_t*);
