@@ -44,4 +44,4 @@ IMPORT_C __int32_t FLLoadLibrary(void);
 
 IMPORT_C __int32_t FLFreeLibrary(void);
 
-IMPORT_C void* FLLibraryInfo(size_t, size_t*);
+IMPORT_C void* FLLibraryInfo(size_t flags, size_t* out_sz);
