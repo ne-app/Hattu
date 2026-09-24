@@ -1,5 +1,6 @@
 -std=c23
 -Ilibs/disk/include/
+-Ilibs/fonts/
 -Wall
 -Werror
 -Wextra
