@@ -7,3 +7,9 @@
 [submodule "EXTERNAL_HEADERS/RSL"]
 	path = EXTERNAL_HEADERS/RSL
 	url = git@github.com:ne-app/RSL.git
+[submodule "libs/core"]
+	path = libs/core
+	url = git@github.com:open-cpp-libraries/core.git
+[submodule "libs/ui"]
+	path = libs/ui
+	url = git@github.com:kosenko/ui.git
