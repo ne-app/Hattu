@@ -11,6 +11,14 @@
 #define LIBDISK_DISKNAME(N) N ".vdf"
 #endif
 
+#ifndef LIBDISK_DISKNAME_VDF
+#define LIBDISK_DISKNAME_VDF(N) LIBDISK_DISKNAME(N)
+#endif
+
+#ifndef LIBDISK_DISKNAME_VHDX
+#define LIBDISK_DISKNAME_VHDX(N) N ".vhdx"
+#endif
+
 #ifndef LIBDISK_EXTERN_C
 #ifdef __cplusplus
 #define LIBDISK_EXTERN_C extern "C"
