@@ -18,6 +18,7 @@
 
 #ifdef __linux__
 #include <unistd.h>
+#include <stdlib.h>
 #endif
 
 struct _FONTLAYER;
