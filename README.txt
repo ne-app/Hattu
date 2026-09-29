@@ -1,7 +1,16 @@
-Ne.app Distribution for BSD and Linux Instances
-===============================================
+Hattu
+=====
 
-Contains additional drivers et al for such instances.
+The Hattu System, written in modern C and C++.
 
-Licensed under Apache 2.0.
+Installing:
+===========
+
+Simply clone the repository:
+
+```sh
+https://github.com/ne-app/hattu.git
+```
+
+And then you're good to go.
 

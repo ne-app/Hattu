@@ -11,6 +11,14 @@
 #define LIBDISK_DISKNAME(N) N ".vdf"
 #endif
 
+#ifndef LIBDISK_DISKNAME_VDF
+#define LIBDISK_DISKNAME_VDF(N) LIBDISK_DISKNAME(N)
+#endif
+
+#ifndef LIBDISK_DISKNAME_VHDX
+#define LIBDISK_DISKNAME_VHDX(N) N ".vhdx"
+#endif
+
 #ifndef LIBDISK_EXTERN_C
 #ifdef __cplusplus
 #define LIBDISK_EXTERN_C extern "C"
@@ -57,8 +65,11 @@ struct libdisk_disk_interface final {
 enum {
   libdisk_disk_interface_invalid,
   libdisk_disk_interface_network = 500,
+  libdisk_disk_interface_net = libdisk_disk_interface_network,
   libdisk_disk_interface_virt,  // VHDX, VDF
-  libdisk_disk_interface_phys,  // Our own .vdf format
+  libdisk_disk_interface_hand,  // Gaming handhelds flash devices
+  libdisk_disk_interface_phys,  // Our own .vdf format,
+  libdisk_disk_interface_cnt = libdisk_disk_interface_phys - libdisk_disk_interface_network + 1
 };
 
 enum {
