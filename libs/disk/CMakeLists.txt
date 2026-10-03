@@ -4,7 +4,7 @@
 
 cmake_minimum_required(VERSION 3.25.1)
 
-project(VirtualDisk DESCRIPTION "The Virtual Library SDK." HOMEPAGE_URL "virtual-disk.ne-app.eu")
+project(VirtualDisk DESCRIPTION "The Ne.app Virtual Disk SDK." HOMEPAGE_URL "virtual-disk.ne-app.eu")
 
 set(CMAKE_C_STANDARD 17)
 
@@ -12,7 +12,11 @@ if (DEFINED VD_INCLUDE_C_EXTENSIONS)
 set(CMAKE_C_EXTENSIONS 1)
 endif()
 
-set(NEAPP_LIBDISK_SOURCES src/virtual_disk.c)
+set(NEAPP_LIBDISK_SOURCES src/virtual_disk.c src/xml_parser.c)
 
 add_library(VirtualDisk SHARED ${NEAPP_LIBDISK_SOURCES})
 target_include_directories(VirtualDisk PUBLIC ./include)
+
+if (DEFINED VD_OPTICAL_MEDIA)
+target_compile_definitions(VirtualDisk PUBLIC LIBDISK_SECTOR_SZ)
+endif()

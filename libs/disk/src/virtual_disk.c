@@ -15,6 +15,7 @@
 #define LIBDISK_START_OFF (1024)
 #endif
 
+/// sector size of the disk, depending on the media.
 #ifndef LIBDISK_SECTOR_SZ
 #define LIBDISK_SECTOR_SZ (512)
 #endif

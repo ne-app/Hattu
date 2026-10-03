@@ -4,3 +4,4 @@
 -Wall
 -Werror
 -Wextra
+-I/usr/include/libxml2
